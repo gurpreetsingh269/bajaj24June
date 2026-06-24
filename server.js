@@ -7,7 +7,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
 
-app.post("/bfhl", (req, res) => {
+app.get("/bfhl", (req, res) => {
 
     const data = req.body.data || [];
 
@@ -180,7 +180,9 @@ app.post("/bfhl", (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-
+app.get("/", (req, res) => {
+    res.send("Backend running successfully");
+});
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
